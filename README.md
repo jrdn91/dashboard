@@ -13,12 +13,6 @@ We suggest getting started with [material-ui](https://material-ui.com/) as they 
 
 If you choose to start from scratch the font-type is: [Roboto](https://fonts.google.com/specimen/Roboto),
 
-## Things we are looking for 
-- [ ] Are the margins and padding similar to the image? Were the colors close? 
-- [ ] Were clickable items accounted for with the right elements? e.g. (was a button or dropdown element used where it should have been used)
-- [ ] How was the project set up? 
-- [ ] If deviations to the design were made, were they justified? 
-
 ### Going above and beyond
 Before moving onto these, please make sure you are happy with the overall look of your dashboard already! 
 - [ ] Use your best judgement to make the dashboard responsive and collapsible at 1200px breakpoint. 
