@@ -1,6 +1,3 @@
-# frontend-interview-prompt
-This is the homework assignment given to prospective frontend engineers. This task should not take more than 4 hours of your time. This prompt itself should last 3.5 hours, with half an hour to fill out the remaining questions on this README. 
-
 ## Task
 Create a dashboard as close as possible to the following image: 
 ![Dashboard_mockup](https://i.imgur.com/5yDwTXk.png)
@@ -33,10 +30,3 @@ Before moving onto these, please make sure you are happy with the overall look o
 
 - [ ] Replace the `Totals` section with data from the following endpoint with a new request being made each refresh: http://www.mocky.io/v2/5d018fbd3100005400ab2968, use your best judgement how to handle this new data. 
 
-## Questions To Answer: 
-This is your chance to talk about the prompt! Please provide these answers on your README. 
-- Please share your screen resolution, OS, browser version (best if you're using latest) you used to test in so we can look at it in: 
-- What part of the design did you get stuck on? What took the most time? Similarly, what was the easiest part? 
-- What part of the design didn't make sense? Did you change anything?
-- If you had more time, what would you have liked to implement? 
-- What did you have to research or lookup while working on this? 
