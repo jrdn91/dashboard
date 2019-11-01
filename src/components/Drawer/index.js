@@ -31,7 +31,9 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar,
     display: "flex",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: theme.palette.primary.dark,
+    color: "#fff"
   }
 }))
 
