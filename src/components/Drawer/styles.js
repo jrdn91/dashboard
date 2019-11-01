@@ -21,7 +21,9 @@ export default makeStyles(theme => ({
   drawerList: {
     width: theme.drawerWidth,
     backgroundColor: theme.palette.darkGrey,
-    color: "#fff"
+    color: "#fff",
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3)
   },
   listItemRoot: {
     "&:hover": {

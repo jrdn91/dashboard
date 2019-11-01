@@ -6,6 +6,13 @@ import MenuIcon from "@material-ui/icons/Menu"
 import CalendarIcon from "@material-ui/icons/CalendarToday"
 import FileIcon from "@material-ui/icons/InsertDriveFile"
 import HomeIcon from "@material-ui/icons/Home"
+import CheckBoxIcon from "@material-ui/icons/CheckBox"
+import WebIcon from "@material-ui/icons/Web"
+import BarChartIcon from "@material-ui/icons/BarChart"
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
+import SettingsIcon from "@material-ui/icons/Settings"
+import Icon from '@mdi/react'
+import { mdiFire, mdiDiamondStone, mdiClipboard } from '@mdi/js';
 import classnames from "clsx"
 import styles from "./styles"
 
@@ -49,12 +56,19 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
         <Item icon={<HomeIcon />} label="Dashboard" selected />
       </List>
       <List className={classes.drawerList}>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon className={classes.listIcon}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <Item icon={<Icon path={mdiFire} size={1} color="white" />} label="Admin Plugins" />
+        <Item icon={<CheckBoxIcon />} label="Admin Forms" />
+        <Item icon={<WebIcon />} label="Admin Layouts" />
+      </List>
+      <List className={classes.drawerList}>
+        <Item icon={<BarChartIcon />} label="Information Panels" />
+        <Item icon={<ShoppingBasketIcon />} label="Ecommerce" />
+      </List>
+      <List className={classes.drawerList}>
+        <Item icon={<Icon path={mdiDiamondStone} size={1} color="white" />} label="UI Elements" />
+        <Item icon={<MenuIcon />} label="Form Elements" />
+        <Item icon={<SettingsIcon />} label="Plugins" />
+        <Item icon={<Icon path={mdiClipboard} size={1} color="white" />} label="Pages" />
       </List>
     </div>
   );
