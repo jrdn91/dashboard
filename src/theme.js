@@ -7,7 +7,8 @@ const primary = {
 
 export default createMuiTheme({
   palette: {
-    primary
+    primary,
+    darkGrey: "#2a323e"
   },
   drawerWidth: 240,
   overrides: {
