@@ -22,6 +22,11 @@ export default createMuiTheme({
       colorPrimary: {
         color: "#fff"
       }
+    },
+    MuiDrawer: {
+      paperAnchorDockedLeft: {
+        borderRight: "none"
+      }
     }
   }
 })
