@@ -2,15 +2,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(theme => ({
   appBar: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${theme.drawerWidth}px)`,
-      marginLeft: theme.drawerWidth,
-    },
+    width: `calc(100% - ${54}px)`,
+    marginLeft: 54,
+    transition: theme.transitions.create(["width","marginLeft"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
+  appBarDrawerOpen: {
+    width: `calc(100% - ${theme.drawerWidth}px)`,
+    marginLeft: theme.drawerWidth,
+    transition: theme.transitions.create(["width","marginLeft"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
 }));

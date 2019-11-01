@@ -1,12 +1,37 @@
 import React from "react"
-import { Hidden, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core"
+import { Hidden, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText, IconButton } from "@material-ui/core"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import InboxIcon from "@material-ui/icons/MoveToInbox"
 import MailIcon from "@material-ui/icons/Mail"
+import MenuIcon from "@material-ui/icons/Menu"
+import classnames from "clsx"
 
 const useStyles = makeStyles(theme => ({
-  drawerPaper: {
+  menuButtonRoot: {
+    padding: 15
+  },
+  drawer: {
+    width: theme.drawerWidth,
+    transition: theme.transitions.create(["width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  drawerClosed: {
+    width: 54,
+    transition: theme.transitions.create(["width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  drawerList: {
     width: theme.drawerWidth
+  },
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center"
   }
 }))
 
@@ -15,10 +40,21 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
   const theme = useTheme();
 
   const drawerContent = (
-    <div>
-      <div className={classes.toolbar} />
+    <div className={classnames(classes.drawer, {
+      [classes.drawerClosed]: !open
+    })}>
+      <div className={classes.toolbar}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerToggle}
+          className={classes.menuButtonRoot}
+        >
+          <MenuIcon />
+        </IconButton>
+      </div>
       <Divider />
-      <List>
+      <List className={classes.drawerList}>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -27,7 +63,7 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
         ))}
       </List>
       <Divider />
-      <List>
+      <List className={classes.drawerList}>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -39,36 +75,14 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
   );
 
   return (
-    <nav className={classes.drawer} aria-label="mailbox folders">
+    <nav aria-label="mailbox folders">
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-      <Hidden smUp implementation="css">
-        <Drawer
-          container={container}
-          variant="temporary"
-          anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-          open={open}
-          onClose={handleDrawerToggle}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {drawerContent}
-        </Drawer>
-      </Hidden>
-      <Hidden xsDown implementation="css">
-        <Drawer
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          variant="permanent"
-          open
-        >
-          {drawerContent}
-        </Drawer>
-      </Hidden>
+      <Drawer
+        variant="permanent"
+        open
+      >
+        {drawerContent}
+      </Drawer>
     </nav>
   )
 }

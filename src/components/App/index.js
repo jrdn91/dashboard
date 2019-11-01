@@ -8,7 +8,17 @@ const useStyles = makeStyles(styles);
 
 function App() {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  let defaultOpenValue = true
+  if (window.innerWidth < 1200) {
+    defaultOpenValue = false
+  }
+  const [mobileOpen, setMobileOpen] = useState(defaultOpenValue)
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 1200 && mobileOpen) {
+      setMobileOpen(false)
+    }
+  })
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -16,7 +26,7 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <AppBar />
+      <AppBar drawerOpen={mobileOpen} />
       <Drawer open={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
     </div>
   );
