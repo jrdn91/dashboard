@@ -43,13 +43,11 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
           <MenuIcon />
         </IconButton>
       </div>
-      <Divider />
       <List className={classes.drawerList}>
         <Item icon={<CalendarIcon />} label="Calendar" />
         <Item icon={<FileIcon />} label="Documentation" />
         <Item icon={<HomeIcon />} label="Dashboard" selected />
       </List>
-      <Divider />
       <List className={classes.drawerList}>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
