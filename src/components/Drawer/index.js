@@ -33,14 +33,18 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
     selected: classes.listItemSelected
   }
 
-  const Item = ({ icon, iconColor = "white", label, selected = false }) => {
+  const Item = ({ icon, iconColor, label, selected = false }) => {
+    let style = {}
+    if (iconColor) {
+      style.color = iconColor
+    }
     return (
       <ListItem button selected={selected} classes={listItemClasses}>
         <ListItemIcon
           className={classnames(classes.listIcon, {
             [classes.listIconSelected]: selected
           })}
-          style={{ color: iconColor }}
+          style={style}
         >
           {icon}
         </ListItemIcon>
