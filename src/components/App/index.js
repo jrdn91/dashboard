@@ -89,7 +89,22 @@ function App() {
               </Menu>
             </div>
           </div>
-          <Card />
+          <Card>
+            <Grid container>
+              <Grid item md={6} lg={3}>
+                Number
+              </Grid>
+              <Grid item md={6} lg={3}>
+                Number
+              </Grid>
+              <Grid item md={6} lg={3}>
+                Number
+              </Grid>
+              <Grid item md={6} lg={3}>
+                Number
+              </Grid>
+            </Grid>
+          </Card>
         </Grid>
       </Grid>
     </div>
