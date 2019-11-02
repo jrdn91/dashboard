@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {
   Grid,
   Card,
+  CardContent,
   Typography,
   Button,
   Menu,
@@ -90,20 +91,52 @@ function App() {
             </div>
           </div>
           <Card>
-            <Grid container>
-              <Grid item md={6} lg={3}>
-                Number
+            <CardContent>
+              <Grid container spacing={4}>
+                <Grid item xs={12}>
+                  <Typography variant="h2" className={classes.totalsTitle}>
+                    Totals
+                  </Typography>
+                  <Typography className={classes.totalsDate}>
+                    Last Week
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item md={6} lg={3}>
-                Number
+              <Grid container spacing={4}>
+                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                  <Typography variant="h3" className={classes.totalsNumber}>
+                    597
+                  </Typography>
+                  <Typography className={classes.totalsSubtitle}>
+                    New Feedbacks
+                  </Typography>
+                </Grid>
+                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                  <Typography variant="h3" className={classes.totalsNumber}>
+                    16.6M$
+                  </Typography>
+                  <Typography className={classes.totalsSubtitle}>
+                    Total Profit
+                  </Typography>
+                </Grid>
+                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                  <Typography variant="h3" className={classes.totalsNumber}>
+                    7.5K
+                  </Typography>
+                  <Typography className={classes.totalsSubtitle}>
+                    New Orders
+                  </Typography>
+                </Grid>
+                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                  <Typography variant="h3" className={classes.totalsNumber}>
+                    +48%
+                  </Typography>
+                  <Typography className={classes.totalsSubtitle}>
+                    Brand Popularity
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item md={6} lg={3}>
-                Number
-              </Grid>
-              <Grid item md={6} lg={3}>
-                Number
-              </Grid>
-            </Grid>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>
