@@ -103,7 +103,7 @@ function App() {
                 </Grid>
               </Grid>
               <Grid container spacing={4}>
-                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
                   <Typography variant="h3" className={classes.totalsNumber}>
                     597
                   </Typography>
@@ -111,7 +111,7 @@ function App() {
                     New Feedbacks
                   </Typography>
                 </Grid>
-                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
                   <Typography variant="h3" className={classes.totalsNumber}>
                     16.6M$
                   </Typography>
@@ -119,7 +119,7 @@ function App() {
                     Total Profit
                   </Typography>
                 </Grid>
-                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
                   <Typography variant="h3" className={classes.totalsNumber}>
                     7.5K
                   </Typography>
@@ -127,7 +127,7 @@ function App() {
                     New Orders
                   </Typography>
                 </Grid>
-                <Grid item md={6} lg={3} className={classes.totalsItem}>
+                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
                   <Typography variant="h3" className={classes.totalsNumber}>
                     +48%
                   </Typography>
