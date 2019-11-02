@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const primary = {
-  main: "#30b4e1",
+  main: "#30b5e1",
   dark: "#1ea6d4"
 }
 
@@ -13,7 +13,7 @@ export default createMuiTheme({
   drawerWidth: 240,
   overrides: {
     MuiCssBaseline: {
-      '@global': {
+      "@global": {
         body: {
           backgroundColor: "#f1f4f8"
         }
@@ -27,6 +27,11 @@ export default createMuiTheme({
     MuiDrawer: {
       paperAnchorDockedLeft: {
         borderRight: "none"
+      }
+    },
+    MuiButton: {
+      containedPrimary: {
+        color: "#fff"
       }
     }
   }

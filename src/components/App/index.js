@@ -3,23 +3,26 @@ import {
   Grid,
   Card,
   Typography,
-  FormControl,
-  InputLabel,
-  Select,
+  Button,
+  Menu,
   MenuItem
 } from "@material-ui/core"
 import styles from "./styles"
 import AppBar from "../AppBar"
 import Drawer from "../Drawer"
 import classnames from "clsx"
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
+import { useTheme } from "@material-ui/core/styles"
 
 function App() {
   const classes = styles()
+  const theme = useTheme()
   let defaultOpenValue = true
   if (window.innerWidth < 1200) {
     defaultOpenValue = false
   }
   const [mobileOpen, setMobileOpen] = useState(defaultOpenValue)
+  const [anchorEl, setAnchorEl] = useState(null)
 
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1200 && mobileOpen) {
@@ -29,6 +32,14 @@ function App() {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
+  }
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
   }
 
   return (
@@ -53,14 +64,29 @@ function App() {
               </Typography>
             </div>
             <div className={classes.dateSelect}>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+                color="primary"
+                variant="contained"
+              >
+                17 January 2016 - 15 February 2016{" "}
+                <KeyboardArrowDownIcon
+                  style={{ fontSize: 14, marginLeft: theme.spacing(1) }}
+                />
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
             </div>
           </div>
           <Card />

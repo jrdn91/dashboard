@@ -7,7 +7,8 @@ export default makeStyles(theme => ({
   main: {
     marginTop: 56,
     marginLeft: 54,
-    transition: theme.transitions.create(["margin-left"], {
+    width: `calc(100% - ${54}px)`,
+    transition: theme.transitions.create(["width", "margin-left"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     }),
@@ -20,10 +21,17 @@ export default makeStyles(theme => ({
   },
   mainDrawerOpen: {
     marginLeft: theme.drawerWidth,
-    transition: theme.transitions.create(["margin-left"], {
+    width: `calc(100% - ${theme.drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin-left"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
+  },
+  pageTitleWrapper: {
+    display: "flex"
+  },
+  pageTitle: {
+    flexGrow: 1
   },
   dashboardTitle: {
     fontSize: "2rem"
