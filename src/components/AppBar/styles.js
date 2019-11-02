@@ -16,5 +16,10 @@ export default makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
+  },
+  searchInput: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+    color: "#fff"
   }
 }))

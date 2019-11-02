@@ -1,6 +1,6 @@
 import React from "react"
-import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core"
-import MenuIcon from "@material-ui/icons/Menu"
+import { AppBar, Toolbar, InputBase } from "@material-ui/core"
+import SearchIcon from "@material-ui/icons/Search"
 import styles from "./styles"
 import classnames from "clsx"
 
@@ -17,9 +17,12 @@ export const AppBarComponent = ({ handleDrawerToggle, drawerOpen }) => {
       })}
     >
       <Toolbar>
-        <Typography variant="h6" noWrap>
-          Responsive drawer
-        </Typography>
+        <SearchIcon />
+        <InputBase
+          className={classes.searchInput}
+          placeholder="Search..."
+          inputProps={{ "aria-label": "search" }}
+        />
       </Toolbar>
     </AppBar>
   )
