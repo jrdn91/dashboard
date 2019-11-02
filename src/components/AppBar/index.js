@@ -10,9 +10,12 @@ export const AppBarComponent = ({ handleDrawerToggle, drawerOpen }) => {
   const classes = useStyles()
 
   return (
-    <AppBar position="fixed" className={classnames(classes.appBar, {
-      [classes.appBarDrawerOpen]: drawerOpen
-    })}>
+    <AppBar
+      position="fixed"
+      className={classnames(classes.appBar, {
+        [classes.appBarDrawerOpen]: drawerOpen
+      })}
+    >
       <Toolbar>
         <Typography variant="h6" noWrap>
           Responsive drawer
