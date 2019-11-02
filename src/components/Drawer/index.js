@@ -19,6 +19,7 @@ import WebIcon from "@material-ui/icons/Web"
 import BarChartIcon from "@material-ui/icons/BarChart"
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 import SettingsIcon from "@material-ui/icons/Settings"
+import RadioIcon from "@material-ui/icons/RadioButtonUnchecked"
 import Icon from "@mdi/react"
 import { mdiFire, mdiDiamondStone, mdiClipboard } from "@mdi/js"
 import classnames from "clsx"
@@ -32,13 +33,14 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
     selected: classes.listItemSelected
   }
 
-  const Item = ({ icon, label, selected = false }) => {
+  const Item = ({ icon, iconColor = "white", label, selected = false }) => {
     return (
       <ListItem button selected={selected} classes={listItemClasses}>
         <ListItemIcon
           className={classnames(classes.listIcon, {
             [classes.listIconSelected]: selected
           })}
+          style={{ color: iconColor }}
         >
           {icon}
         </ListItemIcon>
@@ -83,7 +85,14 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
         </List>
         <List className={classes.drawerList}>
           <Item
-            icon={<Icon path={mdiDiamondStone} size={1} color="white" />}
+            icon={
+              <Icon
+                path={mdiDiamondStone}
+                size={1}
+                color="white"
+                className={classes.mdiIcon}
+              />
+            }
             label="UI Elements"
           />
           <Item icon={<MenuIcon />} label="Form Elements" />
@@ -91,6 +100,23 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
           <Item
             icon={<Icon path={mdiClipboard} size={1} color="white" />}
             label="Pages"
+          />
+        </List>
+        <List className={classes.drawerList}>
+          <Item
+            icon={<RadioIcon />}
+            label="Executive Meeting"
+            iconColor="#f1be41"
+          />
+          <Item
+            icon={<RadioIcon />}
+            label="HelpDesk Redesign"
+            iconColor="#f94f47"
+          />
+          <Item
+            icon={<RadioIcon />}
+            label="Sony Board Meeting"
+            iconColor="#9176d4"
           />
         </List>
       </div>
