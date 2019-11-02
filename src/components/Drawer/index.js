@@ -63,35 +63,37 @@ const DrawerComponent = ({ container, open, handleDrawerToggle }) => {
           <MenuIcon />
         </IconButton>
       </div>
-      <List className={classes.drawerList}>
-        <Item icon={<CalendarIcon />} label="Calendar" />
-        <Item icon={<FileIcon />} label="Documentation" />
-        <Item icon={<HomeIcon />} label="Dashboard" selected />
-      </List>
-      <List className={classes.drawerList}>
-        <Item
-          icon={<Icon path={mdiFire} size={1} color="white" />}
-          label="Admin Plugins"
-        />
-        <Item icon={<CheckBoxIcon />} label="Admin Forms" />
-        <Item icon={<WebIcon />} label="Admin Layouts" />
-      </List>
-      <List className={classes.drawerList}>
-        <Item icon={<BarChartIcon />} label="Information Panels" />
-        <Item icon={<ShoppingBasketIcon />} label="Ecommerce" />
-      </List>
-      <List className={classes.drawerList}>
-        <Item
-          icon={<Icon path={mdiDiamondStone} size={1} color="white" />}
-          label="UI Elements"
-        />
-        <Item icon={<MenuIcon />} label="Form Elements" />
-        <Item icon={<SettingsIcon />} label="Plugins" />
-        <Item
-          icon={<Icon path={mdiClipboard} size={1} color="white" />}
-          label="Pages"
-        />
-      </List>
+      <div className={classes.listItemsWrapper}>
+        <List className={classes.drawerList}>
+          <Item icon={<CalendarIcon />} label="Calendar" />
+          <Item icon={<FileIcon />} label="Documentation" />
+          <Item icon={<HomeIcon />} label="Dashboard" selected />
+        </List>
+        <List className={classes.drawerList}>
+          <Item
+            icon={<Icon path={mdiFire} size={1} color="white" />}
+            label="Admin Plugins"
+          />
+          <Item icon={<CheckBoxIcon />} label="Admin Forms" />
+          <Item icon={<WebIcon />} label="Admin Layouts" />
+        </List>
+        <List className={classes.drawerList}>
+          <Item icon={<BarChartIcon />} label="Information Panels" />
+          <Item icon={<ShoppingBasketIcon />} label="Ecommerce" />
+        </List>
+        <List className={classes.drawerList}>
+          <Item
+            icon={<Icon path={mdiDiamondStone} size={1} color="white" />}
+            label="UI Elements"
+          />
+          <Item icon={<MenuIcon />} label="Form Elements" />
+          <Item icon={<SettingsIcon />} label="Plugins" />
+          <Item
+            icon={<Icon path={mdiClipboard} size={1} color="white" />}
+            label="Pages"
+          />
+        </List>
+      </div>
     </div>
   )
 

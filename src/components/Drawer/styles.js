@@ -5,6 +5,9 @@ export default makeStyles(theme => ({
     padding: 15
   },
   drawer: {
+    overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
     width: theme.drawerWidth,
     transition: theme.transitions.create(["width"], {
       easing: theme.transitions.easing.sharp,
@@ -25,6 +28,9 @@ export default makeStyles(theme => ({
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3)
   },
+  listItemsWrapper: {
+    overflow: "auto"
+  },
   listItemRoot: {
     "&:hover": {
       backgroundColor: "white",
@@ -41,17 +47,17 @@ export default makeStyles(theme => ({
     color: theme.palette.primary.main
   },
   listItemSelected: {
-    backgroundColor: ["#fff","!important"],
+    backgroundColor: ["#fff", "!important"],
     color: theme.palette.text.primary,
     "&:after": {
       width: 4,
-      height: '40%',
+      height: "40%",
       content: "''",
-      position: 'absolute',
-      top: '50%',
+      position: "absolute",
+      top: "50%",
       backgroundColor: theme.palette.primary.main,
-      transform: 'translateY(-50%)',
-      right: 0,
+      transform: "translateY(-50%)",
+      right: 0
     }
   },
   toolbar: {
