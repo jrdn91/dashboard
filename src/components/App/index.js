@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { Fragment, useState } from "react"
 import {
   Grid,
   Card,
@@ -6,7 +6,8 @@ import {
   Typography,
   Button,
   Menu,
-  MenuItem
+  MenuItem,
+  LinearProgress
 } from "@material-ui/core"
 import styles from "./styles"
 import AppBar from "../AppBar"
@@ -14,6 +15,7 @@ import Drawer from "../Drawer"
 import classnames from "clsx"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import { useTheme } from "@material-ui/core/styles"
+import { isEmpty } from "lodash"
 
 function App() {
   const classes = styles()
@@ -25,6 +27,16 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(defaultOpenValue)
   const [anchorEl, setAnchorEl] = useState(null)
   const [revenueAnchorEl, setRevenueAnchorEl] = useState(null)
+  const [totals, setTotals] = useState({ test: "test" })
+  // fetch("http://www.mocky.io/v2/5d018fbd3100005400ab2968")
+  //   .then(response => response.text())
+  //   .then(data => {
+  //     try {
+  //       const json = JSON.parse(data)
+  //     } catch (e) {
+  //       console.log(e)
+  //     }
+  //   })
 
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1200 && mobileOpen) {
@@ -101,62 +113,91 @@ function App() {
           </div>
           <Card>
             <CardContent>
-              <Grid
-                container
-                spacing={4}
-                style={{
-                  marginTop: theme.spacing(1) * -1
-                }}
-              >
-                <Grid item xs={12}>
-                  <Typography variant="h2" className={classes.totalsTitle}>
-                    Totals
-                  </Typography>
-                  <Typography className={classes.totalsDate}>
-                    Last Week
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid
-                container
-                spacing={4}
-                style={{
-                  borderBottom: `2px solid ${theme.palette.grey[100]}`
-                }}
-              >
-                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
-                  <Typography variant="h3" className={classes.totalsNumber}>
-                    597
-                  </Typography>
-                  <Typography className={classes.totalsSubtitle}>
-                    New Feedbacks
-                  </Typography>
-                </Grid>
-                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
-                  <Typography variant="h3" className={classes.totalsNumber}>
-                    16.6M$
-                  </Typography>
-                  <Typography className={classes.totalsSubtitle}>
-                    Total Profit
-                  </Typography>
-                </Grid>
-                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
-                  <Typography variant="h3" className={classes.totalsNumber}>
-                    7.5K
-                  </Typography>
-                  <Typography className={classes.totalsSubtitle}>
-                    New Orders
-                  </Typography>
-                </Grid>
-                <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
-                  <Typography variant="h3" className={classes.totalsNumber}>
-                    +48%
-                  </Typography>
-                  <Typography className={classes.totalsSubtitle}>
-                    Brand Popularity
-                  </Typography>
-                </Grid>
-              </Grid>
+              {isEmpty(totals) && <LinearProgress />}
+              {!isEmpty(totals) && (
+                <Fragment>
+                  <Grid
+                    container
+                    spacing={4}
+                    style={{
+                      marginTop: theme.spacing(1) * -1
+                    }}
+                  >
+                    <Grid item xs={12}>
+                      <Typography variant="h2" className={classes.totalsTitle}>
+                        Totals
+                      </Typography>
+                      <Typography className={classes.totalsDate}>
+                        Last Week
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    spacing={4}
+                    style={{
+                      borderBottom: `2px solid ${theme.palette.grey[100]}`
+                    }}
+                  >
+                    <Grid
+                      item
+                      sm={12}
+                      md={6}
+                      lg={3}
+                      className={classes.totalsItem}
+                    >
+                      <Typography variant="h3" className={classes.totalsNumber}>
+                        597
+                      </Typography>
+                      <Typography className={classes.totalsSubtitle}>
+                        New Feedbacks
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      sm={12}
+                      md={6}
+                      lg={3}
+                      className={classes.totalsItem}
+                    >
+                      <Typography variant="h3" className={classes.totalsNumber}>
+                        16.6M$
+                      </Typography>
+                      <Typography className={classes.totalsSubtitle}>
+                        Total Profit
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      sm={12}
+                      md={6}
+                      lg={3}
+                      className={classes.totalsItem}
+                    >
+                      <Typography variant="h3" className={classes.totalsNumber}>
+                        7.5K
+                      </Typography>
+                      <Typography className={classes.totalsSubtitle}>
+                        New Orders
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      sm={12}
+                      md={6}
+                      lg={3}
+                      className={classes.totalsItem}
+                    >
+                      <Typography variant="h3" className={classes.totalsNumber}>
+                        +48%
+                      </Typography>
+                      <Typography className={classes.totalsSubtitle}>
+                        Brand Popularity
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Fragment>
+              )}
               <Grid container spacing={4} className={classes.chartArea}>
                 <Grid item sm={12} md={6}>
                   <div className={classes.chartControls}>
@@ -178,6 +219,12 @@ function App() {
                     <Button variant="outlined" size="small">
                       Returning
                     </Button>
+                  </div>
+                  <div className={classes.chart}>
+                    <img
+                      className={classes.chartImage}
+                      src={process.env.PUBLIC_URL + "/area-chart.png"}
+                    />
                   </div>
                 </Grid>
                 <Grid item sm={12} md={6}>
@@ -216,6 +263,12 @@ function App() {
                       </MenuItem>
                       <MenuItem onClick={handleRevenueClose}>Logout</MenuItem>
                     </Menu>
+                  </div>
+                  <div className={classes.chart}>
+                    <img
+                      className={classes.chartImage}
+                      src={process.env.PUBLIC_URL + "/line-chart.png"}
+                    />
                   </div>
                 </Grid>
               </Grid>
