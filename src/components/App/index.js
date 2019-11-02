@@ -150,12 +150,26 @@ function App() {
               </Grid>
               <Grid container spacing={4} className={classes.chartArea}>
                 <Grid item sm={12} md={6}>
-                  <Typography variant="h2" className={classes.totalsTitle}>
-                    Site Visits
-                  </Typography>
-                  <Typography className={classes.totalsDate}>
-                    Weekly Stats
-                  </Typography>
+                  <div className={classes.chartControls}>
+                    <div className={classes.chartControlsText}>
+                      <Typography variant="h2" className={classes.totalsTitle}>
+                        Site Visits
+                      </Typography>
+                      <Typography className={classes.totalsDate}>
+                        Weekly Stats
+                      </Typography>
+                    </div>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className={classes.newButton}
+                    >
+                      New
+                    </Button>
+                    <Button variant="outlined" size="small">
+                      Returning
+                    </Button>
+                  </div>
                 </Grid>
                 <Grid item sm={12} md={6}>
                   <Typography variant="h2" className={classes.totalsTitle}>

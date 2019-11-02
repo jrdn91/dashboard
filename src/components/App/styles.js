@@ -78,5 +78,16 @@ export default makeStyles(theme => ({
   },
   chartArea: {
     marginTop: theme.spacing(6)
+  },
+  newButton: {
+    backgroundColor: "#03ce8e",
+    color: "#fff",
+    marginRight: theme.spacing(1)
+  },
+  chartControls: {
+    display: "flex"
+  },
+  chartControlsText: {
+    flexGrow: 1
   }
 }))

@@ -30,8 +30,35 @@ export default createMuiTheme({
       }
     },
     MuiButton: {
+      root: {
+        minWidth: 46,
+        fontWeight: 300
+      },
+      contained: {
+        boxShadow: "none",
+        "&:hover": {
+          boxShadow: "none"
+        }
+      },
       containedPrimary: {
         color: "#fff"
+      },
+      containedSizeSmall: {
+        padding: "4px 4px",
+        fontSize: "0.7125rem",
+        lineHeight: 1.45,
+        height: 26
+      },
+      outlinedSizeSmall: {
+        padding: "4px 6px",
+        fontSize: "0.7125rem",
+        lineHeight: 1.25,
+        height: 26
+      },
+      outlined: {
+        borderColor: "#eeeeee",
+        borderWidth: 2,
+        color: "#bdbdbd"
       }
     }
   }
