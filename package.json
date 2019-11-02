@@ -7,9 +7,11 @@
     "@material-ui/icons": "^4.5.1",
     "@mdi/js": "^4.5.95",
     "@mdi/react": "^1.2.1",
+    "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-vis": "^1.11.7"
   },
   "scripts": {
     "start": "react-scripts start",
