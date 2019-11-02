@@ -21,5 +21,10 @@ export default makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     flex: 1,
     color: "#fff"
+  },
+  dropDownArrowIcon: {
+    color: "#fff",
+    fontSize: 17,
+    marginLeft: theme.spacing(2)
   }
 }))
