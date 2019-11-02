@@ -44,7 +44,7 @@ export default createMuiTheme({
         color: "#fff"
       },
       containedSizeSmall: {
-        padding: "4px 4px",
+        padding: "4px 10px",
         fontSize: "0.7125rem",
         lineHeight: 1.45,
         height: 26

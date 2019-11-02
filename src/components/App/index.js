@@ -24,6 +24,7 @@ function App() {
   }
   const [mobileOpen, setMobileOpen] = useState(defaultOpenValue)
   const [anchorEl, setAnchorEl] = useState(null)
+  const [revenueAnchorEl, setRevenueAnchorEl] = useState(null)
 
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1200 && mobileOpen) {
@@ -41,6 +42,14 @@ function App() {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleRevenueClick = event => {
+    setRevenueAnchorEl(event.currentTarget)
+  }
+
+  const handleRevenueClose = () => {
+    setRevenueAnchorEl(null)
   }
 
   return (
@@ -172,12 +181,42 @@ function App() {
                   </div>
                 </Grid>
                 <Grid item sm={12} md={6}>
-                  <Typography variant="h2" className={classes.totalsTitle}>
-                    Revenue
-                  </Typography>
-                  <Typography className={classes.totalsDate}>
-                    Monthly Stats
-                  </Typography>
+                  <div className={classes.chartControls}>
+                    <div className={classes.chartControlsText}>
+                      <Typography variant="h2" className={classes.totalsTitle}>
+                        Revenue
+                      </Typography>
+                      <Typography className={classes.totalsDate}>
+                        Monthly Stats
+                      </Typography>
+                    </div>
+                    <Button
+                      aria-controls="simple-menu"
+                      aria-haspopup="true"
+                      onClick={handleRevenueClick}
+                      color="primary"
+                      variant="contained"
+                      size="small"
+                    >
+                      Fitler Range
+                      <KeyboardArrowDownIcon
+                        style={{ fontSize: 14, marginLeft: theme.spacing(1) }}
+                      />
+                    </Button>
+                    <Menu
+                      id="simple-menu"
+                      anchorEl={revenueAnchorEl}
+                      keepMounted
+                      open={Boolean(revenueAnchorEl)}
+                      onClose={handleRevenueClose}
+                    >
+                      <MenuItem onClick={handleRevenueClose}>test</MenuItem>
+                      <MenuItem onClick={handleRevenueClose}>
+                        My account
+                      </MenuItem>
+                      <MenuItem onClick={handleRevenueClose}>Logout</MenuItem>
+                    </Menu>
+                  </div>
                 </Grid>
               </Grid>
             </CardContent>
