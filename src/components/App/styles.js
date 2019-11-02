@@ -24,5 +24,12 @@ export default makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
+  },
+  dashboardTitle: {
+    fontSize: "2rem"
+  },
+  dashboardSubTitle: {
+    fontSize: "0.8rem",
+    color: theme.palette.grey[500]
   }
 }))

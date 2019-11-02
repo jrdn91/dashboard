@@ -48,7 +48,9 @@ function App() {
               <Typography variant="h1" className={classes.dashboardTitle}>
                 Dashboard
               </Typography>
-              <Typography>dashboard & statistics</Typography>
+              <Typography className={classes.dashboardSubTitle}>
+                dashboard & statistics
+              </Typography>
             </div>
             <div className={classes.dateSelect}>
               <FormControl className={classes.formControl}>
