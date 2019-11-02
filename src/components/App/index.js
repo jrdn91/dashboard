@@ -92,7 +92,13 @@ function App() {
           </div>
           <Card>
             <CardContent>
-              <Grid container spacing={4}>
+              <Grid
+                container
+                spacing={4}
+                style={{
+                  marginTop: theme.spacing(1) * -1
+                }}
+              >
                 <Grid item xs={12}>
                   <Typography variant="h2" className={classes.totalsTitle}>
                     Totals
@@ -102,7 +108,13 @@ function App() {
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid container spacing={4}>
+              <Grid
+                container
+                spacing={4}
+                style={{
+                  borderBottom: `2px solid ${theme.palette.grey[100]}`
+                }}
+              >
                 <Grid item sm={12} md={6} lg={3} className={classes.totalsItem}>
                   <Typography variant="h3" className={classes.totalsNumber}>
                     597
@@ -133,6 +145,24 @@ function App() {
                   </Typography>
                   <Typography className={classes.totalsSubtitle}>
                     Brand Popularity
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid container spacing={4} className={classes.chartArea}>
+                <Grid item sm={12} md={6}>
+                  <Typography variant="h2" className={classes.totalsTitle}>
+                    Site Visits
+                  </Typography>
+                  <Typography className={classes.totalsDate}>
+                    Weekly Stats
+                  </Typography>
+                </Grid>
+                <Grid item sm={12} md={6}>
+                  <Typography variant="h2" className={classes.totalsTitle}>
+                    Revenue
+                  </Typography>
+                  <Typography className={classes.totalsDate}>
+                    Monthly Stats
                   </Typography>
                 </Grid>
               </Grid>

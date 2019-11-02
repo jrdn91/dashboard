@@ -75,5 +75,8 @@ export default makeStyles(theme => ({
   totalsSubtitle: {
     fontSize: "0.8rem",
     color: theme.palette.grey[500]
+  },
+  chartArea: {
+    marginTop: theme.spacing(6)
   }
 }))
