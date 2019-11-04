@@ -16,6 +16,7 @@ import classnames from "clsx"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import { useTheme } from "@material-ui/core/styles"
 import { isEmpty } from "lodash"
+import { formatMoney } from "accounting"
 
 function App() {
   const classes = styles()
@@ -27,16 +28,12 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(defaultOpenValue)
   const [anchorEl, setAnchorEl] = useState(null)
   const [revenueAnchorEl, setRevenueAnchorEl] = useState(null)
-  const [totals, setTotals] = useState({ test: "test" })
-  // fetch("http://www.mocky.io/v2/5d018fbd3100005400ab2968")
-  //   .then(response => response.text())
-  //   .then(data => {
-  //     try {
-  //       const json = JSON.parse(data)
-  //     } catch (e) {
-  //       console.log(e)
-  //     }
-  //   })
+  const [totals, setTotals] = useState({})
+  fetch("http://www.mocky.io/v2/5dc04c03310000d1d3be4023")
+    .then(response => response.json())
+    .then(data => {
+      setTotals(data.Totals)
+    })
 
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1200 && mobileOpen) {
@@ -147,7 +144,7 @@ function App() {
                       className={classes.totalsItem}
                     >
                       <Typography variant="h3" className={classes.totalsNumber}>
-                        597
+                        {totals.newFeedbacks}
                       </Typography>
                       <Typography className={classes.totalsSubtitle}>
                         New Feedbacks
@@ -161,7 +158,7 @@ function App() {
                       className={classes.totalsItem}
                     >
                       <Typography variant="h3" className={classes.totalsNumber}>
-                        16.6M$
+                        {formatMoney(totals.totalProfit, "$", 0)}
                       </Typography>
                       <Typography className={classes.totalsSubtitle}>
                         Total Profit
@@ -175,7 +172,7 @@ function App() {
                       className={classes.totalsItem}
                     >
                       <Typography variant="h3" className={classes.totalsNumber}>
-                        7.5K
+                        {totals.newOrders}
                       </Typography>
                       <Typography className={classes.totalsSubtitle}>
                         New Orders
@@ -189,7 +186,7 @@ function App() {
                       className={classes.totalsItem}
                     >
                       <Typography variant="h3" className={classes.totalsNumber}>
-                        +48%
+                        {totals.BrandPopularity}%
                       </Typography>
                       <Typography className={classes.totalsSubtitle}>
                         Brand Popularity
